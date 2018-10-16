@@ -1,0 +1,5 @@
+﻿IF OBJECT_ID('dbo.ufn_fnname') IS NOT NULL
+  EXEC('DROP FUNCTION dbo.ufn_fnname')
+GO
+
+CREATE FUNCTION [dbo].[ufn_fnname] ()
