@@ -1,1 +1,5 @@
-﻿
+﻿IF OBJECT_ID('dbo.viewname') IS NULL
+  EXEC('CREATE VIEW dbo.viewname AS SELECT 0 AS A;')
+GO
+
+ALTER VIEW [dbo].[viewname] AS

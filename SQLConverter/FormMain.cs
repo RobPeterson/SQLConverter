@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -39,9 +40,10 @@ namespace SQLConverter
       
       var encoding = new System.Text.UTF8Encoding(false); // NO BOM
       var utf = encoding.GetString(bytes);
-      var destinationPath = Path.Combine(textBoxDestination.Text,Path.GetFileName(currentFile));
-      File.WriteAllText(destinationPath,utf, encoding);
-      this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
+      MessageBox.Show(new SqlFactory().IsSproc(utf).ToString());
+      //var destinationPath = Path.Combine(textBoxDestination.Text,Path.GetFileName(currentFile));
+      //File.WriteAllText(destinationPath,utf, encoding);
+      //this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
     }
   }
 }
