@@ -40,7 +40,8 @@ namespace SQLConverter
       
       var encoding = new System.Text.UTF8Encoding(false); // NO BOM
       var utf = encoding.GetString(bytes);
-      MessageBox.Show(new SqlFactory().IsSproc(utf).ToString());
+      //MessageBox.Show(new SqlFactory().IsSproc(utf).ToString());
+      MessageBox.Show(new SqlFactory().GetWithHeaders(utf));
       //var destinationPath = Path.Combine(textBoxDestination.Text,Path.GetFileName(currentFile));
       //File.WriteAllText(destinationPath,utf, encoding);
       //this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
