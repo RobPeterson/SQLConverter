@@ -6,6 +6,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace SQLConverter
 {
@@ -55,6 +56,24 @@ namespace SQLConverter
       if (!rx.IsMatch(sql))
         throw new Exception("Can't find Sproc Name Excpetion");
       var name = rx.Match(sql).ToString().Trim();
+      return name;
+
+    }
+
+    private string GetFunctionName(string sql)
+    {
+      Regex rx = new Regex(@"(?<=FUNCTION).*\([@|\s*]", RegexOptions.IgnoreCase);
+      if (!rx.IsMatch(sql))
+        throw new Exception("Can't find Function Name Exception");
+
+      var name = rx.Match(sql).ToString().Trim();
+
+      // Trim off the extra stuff.
+      while (name.Length > 2 && (!char.IsLetterOrDigit(name[name.Length - 1]) || name[name.Length - 1] != ']'))
+      {
+        name = name.Substring(0, name.Length - 2);
+      }
+
       return name;
 
     }
