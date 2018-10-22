@@ -46,5 +46,21 @@ namespace SQLConverter
       //File.WriteAllText(destinationPath,utf, encoding);
       //this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
     }
+
+    private void previewToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      var currentFile = this.listBoxSourceFiles.SelectedItem.ToString();
+      var bytes = File.ReadAllBytes(currentFile);
+
+      var encoding = new System.Text.UTF8Encoding(false); // NO BOM
+      var utf = encoding.GetString(bytes);
+
+      var SqlFactory = new SqlFactory();
+      var previewText = SqlFactory.GetWithHeaders(utf);
+      FormPreview preview = new FormPreview();
+      preview.SetBefore(utf);
+      preview.SetAfter(previewText);
+      preview.Show();
+    }
   }
 }
