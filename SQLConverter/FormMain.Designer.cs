@@ -36,13 +36,14 @@
       this.textBoxDestination = new System.Windows.Forms.TextBox();
       this.listBoxDestinationFiles = new System.Windows.Forms.ListBox();
       this.listBoxSourceFiles = new System.Windows.Forms.ListBox();
+      this.contextMenuSource = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.buttonSource = new System.Windows.Forms.Button();
       this.buttonDestination = new System.Windows.Forms.Button();
       this.buttonConvert = new System.Windows.Forms.Button();
       this.folderBrowserDialogDestination = new System.Windows.Forms.FolderBrowserDialog();
-      this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.contextMenuStrip1.SuspendLayout();
+      this.convertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.contextMenuSource.SuspendLayout();
       this.SuspendLayout();
       // 
       // textBoxSource
@@ -88,13 +89,30 @@
       // 
       // listBoxSourceFiles
       // 
-      this.listBoxSourceFiles.ContextMenuStrip = this.contextMenuStrip1;
+      this.listBoxSourceFiles.ContextMenuStrip = this.contextMenuSource;
       this.listBoxSourceFiles.FormattingEnabled = true;
       this.listBoxSourceFiles.ItemHeight = 16;
       this.listBoxSourceFiles.Location = new System.Drawing.Point(23, 164);
       this.listBoxSourceFiles.Name = "listBoxSourceFiles";
       this.listBoxSourceFiles.Size = new System.Drawing.Size(345, 228);
       this.listBoxSourceFiles.TabIndex = 6;
+      // 
+      // contextMenuSource
+      // 
+      this.contextMenuSource.ImageScalingSize = new System.Drawing.Size(20, 20);
+      this.contextMenuSource.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.previewToolStripMenuItem,
+            this.convertToolStripMenuItem});
+      this.contextMenuSource.Name = "contextMenuStrip1";
+      this.contextMenuSource.Size = new System.Drawing.Size(211, 80);
+      this.contextMenuSource.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuSource_Opening);
+      // 
+      // previewToolStripMenuItem
+      // 
+      this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
+      this.previewToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+      this.previewToolStripMenuItem.Text = "Preview";
+      this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
       // 
       // buttonSource
       // 
@@ -126,20 +144,12 @@
       this.buttonConvert.UseVisualStyleBackColor = true;
       this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
       // 
-      // contextMenuStrip1
+      // convertToolStripMenuItem
       // 
-      this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-      this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.previewToolStripMenuItem});
-      this.contextMenuStrip1.Name = "contextMenuStrip1";
-      this.contextMenuStrip1.Size = new System.Drawing.Size(130, 28);
-      // 
-      // previewToolStripMenuItem
-      // 
-      this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
-      this.previewToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-      this.previewToolStripMenuItem.Text = "Preview";
-      this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
+      this.convertToolStripMenuItem.Name = "convertToolStripMenuItem";
+      this.convertToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+      this.convertToolStripMenuItem.Text = "Convert";
+      this.convertToolStripMenuItem.Click += new System.EventHandler(this.convertToolStripMenuItem_Click);
       // 
       // FormMain
       // 
@@ -157,7 +167,7 @@
       this.Controls.Add(this.textBoxSource);
       this.Name = "FormMain";
       this.Text = "SQL Converter";
-      this.contextMenuStrip1.ResumeLayout(false);
+      this.contextMenuSource.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -176,8 +186,9 @@
     private System.Windows.Forms.Button buttonDestination;
     private System.Windows.Forms.Button buttonConvert;
     private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogDestination;
-    private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+    private System.Windows.Forms.ContextMenuStrip contextMenuSource;
     private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem convertToolStripMenuItem;
   }
 }
 
