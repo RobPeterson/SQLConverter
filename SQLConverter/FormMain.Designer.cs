@@ -56,8 +56,13 @@
       this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.checkBoxOverwriteExistingFiles = new System.Windows.Forms.CheckBox();
+      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.contextMenuSource.SuspendLayout();
       this.contextMenuDestination.SuspendLayout();
+      this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // textBoxSource
@@ -167,7 +172,7 @@
       this.buttonConvert.Name = "buttonConvert";
       this.buttonConvert.Size = new System.Drawing.Size(154, 27);
       this.buttonConvert.TabIndex = 9;
-      this.buttonConvert.Text = "Convert";
+      this.buttonConvert.Text = "Convert All";
       this.buttonConvert.UseVisualStyleBackColor = true;
       this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
       // 
@@ -271,12 +276,47 @@
       this.checkBoxOverwriteExistingFiles.Text = "Overwrite Existing Files";
       this.checkBoxOverwriteExistingFiles.UseVisualStyleBackColor = true;
       // 
+      // menuStrip1
+      // 
+      this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+      this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+      this.menuStrip1.Name = "menuStrip1";
+      this.menuStrip1.Size = new System.Drawing.Size(824, 28);
+      this.menuStrip1.TabIndex = 12;
+      this.menuStrip1.Text = "menuStrip1";
+      // 
+      // fileToolStripMenuItem
+      // 
+      this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolStripMenuItem,
+            this.clearAllToolStripMenuItem});
+      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+      this.fileToolStripMenuItem.Text = "File";
+      // 
+      // closeToolStripMenuItem
+      // 
+      this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+      this.closeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+      this.closeToolStripMenuItem.Text = "Close";
+      this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+      // 
+      // clearAllToolStripMenuItem
+      // 
+      this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
+      this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+      this.clearAllToolStripMenuItem.Text = "Clear All";
+      this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(824, 450);
       this.Controls.Add(this.checkBoxOverwriteExistingFiles);
+      this.Controls.Add(this.menuStrip1);
       this.Controls.Add(this.buttonConvert);
       this.Controls.Add(this.buttonDestination);
       this.Controls.Add(this.buttonSource);
@@ -286,10 +326,13 @@
       this.Controls.Add(this.labelDestination);
       this.Controls.Add(this.labelSource);
       this.Controls.Add(this.textBoxSource);
+      this.MainMenuStrip = this.menuStrip1;
       this.Name = "FormMain";
       this.Text = "SQL Converter";
       this.contextMenuSource.ResumeLayout(false);
       this.contextMenuDestination.ResumeLayout(false);
+      this.menuStrip1.ResumeLayout(false);
+      this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -324,6 +367,10 @@
     private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem1;
     private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
     private System.Windows.Forms.CheckBox checkBoxOverwriteExistingFiles;
+    private System.Windows.Forms.MenuStrip menuStrip1;
+    private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
   }
 }
 

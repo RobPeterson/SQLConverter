@@ -216,6 +216,19 @@ namespace SQLConverter
         MessageBox.Show($"Error Cannot Refresh: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
       }
     }
+
+    private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Application.Exit();
+    }
+
+    private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      listBoxDestinationFiles.Items.Clear();
+      listBoxSourceFiles.Items.Clear();
+      textBoxDestination.Text = "";
+      textBoxSource.Text = "";
+    }
   }
   
 }
