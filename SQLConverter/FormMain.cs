@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -35,16 +36,12 @@ namespace SQLConverter
 
     private void buttonConvert_Click(object sender, EventArgs e)
     {
-      var currentFile = this.listBoxSourceFiles.Items[0].ToString();
-      var bytes = File.ReadAllBytes(currentFile);
-      
-      var encoding = new System.Text.UTF8Encoding(false); // NO BOM
-      var utf = encoding.GetString(bytes);
-      //MessageBox.Show(new SqlFactory().IsSproc(utf).ToString());
-      MessageBox.Show(new SqlFactory().GetWithHeaders(utf));
-      //var destinationPath = Path.Combine(textBoxDestination.Text,Path.GetFileName(currentFile));
-      //File.WriteAllText(destinationPath,utf, encoding);
-      //this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
+      this.listBoxSourceFiles.DataSource = Directory.GetFiles(textBoxSource.Text);
+      foreach (var i in this.listBoxSourceFiles.Items)
+      {
+        this.ConvertFile(i.ToString());
+      }
+      this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
     }
 
     private void previewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,17 +68,29 @@ namespace SQLConverter
     private void convertToolStripMenuItem_Click(object sender, EventArgs e)
     {
       var currentFile = this.listBoxSourceFiles.SelectedItem.ToString();
+      ConvertFile(currentFile);
+      this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
+    }
+
+    private void ConvertFile(string currentFile)
+    {
       var bytes = File.ReadAllBytes(currentFile);
 
       var encoding = new System.Text.UTF8Encoding(false); // NO BOM
       var utf = encoding.GetString(bytes);
       var SqlFactory = new SqlFactory();
       var previewText = SqlFactory.GetWithHeaders(utf);
-   
-      var destinationPath = Path.Combine(textBoxDestination.Text, Path.GetFileName(currentFile).Replace("[",String.Empty).Replace("]",String.Empty));
-      File.WriteAllText(destinationPath, previewText, encoding);
-      this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
+
+      var destinationPath = Path.Combine(textBoxDestination.Text,
+        Path.GetFileName(currentFile).Replace("[", String.Empty).Replace("]", String.Empty));
+      if (File.Exists(destinationPath) && this.checkBoxOverwriteExistingFiles.Checked == true)
+        File.WriteAllText(destinationPath, previewText, encoding);
+
+      if (!File.Exists(destinationPath))
+        File.WriteAllText(destinationPath, previewText, encoding);
     }
+
+
 
     private void toolStripMenuItem1_Click(object sender, EventArgs e)
     {
@@ -182,6 +191,30 @@ namespace SQLConverter
       }
       var f = this.listBoxSourceFiles.SelectedItem.ToString();
       System.Diagnostics.Process.Start("Notepad++.exe", $"{f}");
+    }
+
+    private void refreshToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      try
+      {
+        this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show($"Error Cannot Refresh: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+      }
+    }
+
+    private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      try
+      {
+        this.listBoxSourceFiles.DataSource = Directory.GetFiles(textBoxSource.Text);
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show($"Error Cannot Refresh: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+      }
     }
   }
   

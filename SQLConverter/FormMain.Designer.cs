@@ -53,6 +53,9 @@
       this.openInVSCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.openInNotePadToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.checkBoxOverwriteExistingFiles = new System.Windows.Forms.CheckBox();
       this.contextMenuSource.SuspendLayout();
       this.contextMenuDestination.SuspendLayout();
       this.SuspendLayout();
@@ -118,22 +121,23 @@
             this.openInSSMSToolStripMenuItem,
             this.openInVSCodeToolStripMenuItem,
             this.openInNotePadToolStripMenuItem1,
-            this.deleteToolStripMenuItem});
+            this.deleteToolStripMenuItem,
+            this.refreshToolStripMenuItem});
       this.contextMenuSource.Name = "contextMenuStrip1";
-      this.contextMenuSource.Size = new System.Drawing.Size(212, 176);
+      this.contextMenuSource.Size = new System.Drawing.Size(212, 172);
       this.contextMenuSource.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuSource_Opening);
       // 
       // previewToolStripMenuItem
       // 
       this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
-      this.previewToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
+      this.previewToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
       this.previewToolStripMenuItem.Text = "Preview";
       this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
       // 
       // convertToolStripMenuItem
       // 
       this.convertToolStripMenuItem.Name = "convertToolStripMenuItem";
-      this.convertToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
+      this.convertToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
       this.convertToolStripMenuItem.Text = "Convert";
       this.convertToolStripMenuItem.Click += new System.EventHandler(this.convertToolStripMenuItem_Click);
       // 
@@ -175,36 +179,37 @@
             this.toolStripMenuItemSSMS,
             this.toolStripMenuItemVSCODE,
             this.openInNotePadToolStripMenuItem,
-            this.toolStripMenuItemDelete});
+            this.toolStripMenuItemDelete,
+            this.refreshToolStripMenuItem1});
       this.contextMenuDestination.Name = "contextMenuDestination";
-      this.contextMenuDestination.Size = new System.Drawing.Size(212, 124);
+      this.contextMenuDestination.Size = new System.Drawing.Size(212, 148);
       this.contextMenuDestination.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuDestination_Opening);
       // 
       // toolStripMenuItemView
       // 
       this.toolStripMenuItemView.Name = "toolStripMenuItemView";
-      this.toolStripMenuItemView.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuItemView.Size = new System.Drawing.Size(211, 24);
       this.toolStripMenuItemView.Text = "View";
       this.toolStripMenuItemView.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
       // 
       // toolStripMenuItemDelete
       // 
       this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-      this.toolStripMenuItemDelete.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuItemDelete.Size = new System.Drawing.Size(211, 24);
       this.toolStripMenuItemDelete.Text = "Delete";
       this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuDelete_Click);
       // 
       // toolStripMenuItemSSMS
       // 
       this.toolStripMenuItemSSMS.Name = "toolStripMenuItemSSMS";
-      this.toolStripMenuItemSSMS.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuItemSSMS.Size = new System.Drawing.Size(211, 24);
       this.toolStripMenuItemSSMS.Text = "Open in SSMS";
       this.toolStripMenuItemSSMS.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
       // 
       // toolStripMenuItemVSCODE
       // 
       this.toolStripMenuItemVSCODE.Name = "toolStripMenuItemVSCODE";
-      this.toolStripMenuItemVSCODE.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuItemVSCODE.Size = new System.Drawing.Size(211, 24);
       this.toolStripMenuItemVSCODE.Text = "Open in VS Code";
       this.toolStripMenuItemVSCODE.Click += new System.EventHandler(this.toolStripMenuItemVSCODE_Click);
       // 
@@ -242,11 +247,36 @@
       this.deleteToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
       this.deleteToolStripMenuItem.Text = "Delete";
       // 
+      // refreshToolStripMenuItem
+      // 
+      this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+      this.refreshToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+      this.refreshToolStripMenuItem.Text = "Refresh";
+      this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+      // 
+      // refreshToolStripMenuItem1
+      // 
+      this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
+      this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(211, 24);
+      this.refreshToolStripMenuItem1.Text = "Refresh";
+      this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.refreshToolStripMenuItem1_Click);
+      // 
+      // checkBoxOverwriteExistingFiles
+      // 
+      this.checkBoxOverwriteExistingFiles.AutoSize = true;
+      this.checkBoxOverwriteExistingFiles.Location = new System.Drawing.Point(505, 400);
+      this.checkBoxOverwriteExistingFiles.Name = "checkBoxOverwriteExistingFiles";
+      this.checkBoxOverwriteExistingFiles.Size = new System.Drawing.Size(175, 21);
+      this.checkBoxOverwriteExistingFiles.TabIndex = 11;
+      this.checkBoxOverwriteExistingFiles.Text = "Overwrite Existing Files";
+      this.checkBoxOverwriteExistingFiles.UseVisualStyleBackColor = true;
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(824, 450);
+      this.Controls.Add(this.checkBoxOverwriteExistingFiles);
       this.Controls.Add(this.buttonConvert);
       this.Controls.Add(this.buttonDestination);
       this.Controls.Add(this.buttonSource);
@@ -291,6 +321,9 @@
     private System.Windows.Forms.ToolStripMenuItem openInVSCodeToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem openInNotePadToolStripMenuItem1;
     private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem1;
+    private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+    private System.Windows.Forms.CheckBox checkBoxOverwriteExistingFiles;
   }
 }
 
