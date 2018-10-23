@@ -109,9 +109,9 @@ namespace SQLConverter
       var name = rx.Match(sql).ToString().Trim();
 
       // Trim off the extra stuff.
-      while (name.Length > 2 && (!char.IsLetterOrDigit(name[name.Length - 1]) || name[name.Length - 1] != ']'))
+      while (name.Length > 2 && (!char.IsLetterOrDigit(name[name.Length - 1]) && name[name.Length - 1] != ']'))
       {
-        name = name.Substring(0, name.Length - 2);
+        name = name.Substring(0, name.Length - 1);
       }
 
       return name;
