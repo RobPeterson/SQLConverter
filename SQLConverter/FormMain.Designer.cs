@@ -44,8 +44,15 @@
       this.buttonConvert = new System.Windows.Forms.Button();
       this.folderBrowserDialogDestination = new System.Windows.Forms.FolderBrowserDialog();
       this.contextMenuDestination = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.toolStripMenuView = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemView = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemSSMS = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemVSCODE = new System.Windows.Forms.ToolStripMenuItem();
+      this.openInNotePadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.openInSSMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.openInVSCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.openInNotePadToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.contextMenuSource.SuspendLayout();
       this.contextMenuDestination.SuspendLayout();
       this.SuspendLayout();
@@ -107,9 +114,13 @@
       this.contextMenuSource.ImageScalingSize = new System.Drawing.Size(20, 20);
       this.contextMenuSource.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.previewToolStripMenuItem,
-            this.convertToolStripMenuItem});
+            this.convertToolStripMenuItem,
+            this.openInSSMSToolStripMenuItem,
+            this.openInVSCodeToolStripMenuItem,
+            this.openInNotePadToolStripMenuItem1,
+            this.deleteToolStripMenuItem});
       this.contextMenuSource.Name = "contextMenuStrip1";
-      this.contextMenuSource.Size = new System.Drawing.Size(130, 52);
+      this.contextMenuSource.Size = new System.Drawing.Size(212, 176);
       this.contextMenuSource.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuSource_Opening);
       // 
       // previewToolStripMenuItem
@@ -160,25 +171,76 @@
       // 
       this.contextMenuDestination.ImageScalingSize = new System.Drawing.Size(20, 20);
       this.contextMenuDestination.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuView,
-            this.toolStripMenuDelete});
+            this.toolStripMenuItemView,
+            this.toolStripMenuItemSSMS,
+            this.toolStripMenuItemVSCODE,
+            this.openInNotePadToolStripMenuItem,
+            this.toolStripMenuItemDelete});
       this.contextMenuDestination.Name = "contextMenuDestination";
-      this.contextMenuDestination.Size = new System.Drawing.Size(211, 80);
+      this.contextMenuDestination.Size = new System.Drawing.Size(212, 124);
       this.contextMenuDestination.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuDestination_Opening);
       // 
-      // toolStripMenuView
+      // toolStripMenuItemView
       // 
-      this.toolStripMenuView.Name = "toolStripMenuView";
-      this.toolStripMenuView.Size = new System.Drawing.Size(210, 24);
-      this.toolStripMenuView.Text = "View";
-      this.toolStripMenuView.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+      this.toolStripMenuItemView.Name = "toolStripMenuItemView";
+      this.toolStripMenuItemView.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuItemView.Text = "View";
+      this.toolStripMenuItemView.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
       // 
-      // toolStripMenuDelete
+      // toolStripMenuItemDelete
       // 
-      this.toolStripMenuDelete.Name = "toolStripMenuDelete";
-      this.toolStripMenuDelete.Size = new System.Drawing.Size(210, 24);
-      this.toolStripMenuDelete.Text = "Delete";
-      this.toolStripMenuDelete.Click += new System.EventHandler(this.toolStripMenuDelete_Click);
+      this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+      this.toolStripMenuItemDelete.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuItemDelete.Text = "Delete";
+      this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuDelete_Click);
+      // 
+      // toolStripMenuItemSSMS
+      // 
+      this.toolStripMenuItemSSMS.Name = "toolStripMenuItemSSMS";
+      this.toolStripMenuItemSSMS.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuItemSSMS.Text = "Open in SSMS";
+      this.toolStripMenuItemSSMS.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
+      // 
+      // toolStripMenuItemVSCODE
+      // 
+      this.toolStripMenuItemVSCODE.Name = "toolStripMenuItemVSCODE";
+      this.toolStripMenuItemVSCODE.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuItemVSCODE.Text = "Open in VS Code";
+      this.toolStripMenuItemVSCODE.Click += new System.EventHandler(this.toolStripMenuItemVSCODE_Click);
+      // 
+      // openInNotePadToolStripMenuItem
+      // 
+      this.openInNotePadToolStripMenuItem.Name = "openInNotePadToolStripMenuItem";
+      this.openInNotePadToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+      this.openInNotePadToolStripMenuItem.Text = "Open in NotePad++";
+      this.openInNotePadToolStripMenuItem.Click += new System.EventHandler(this.openInNotePadToolStripMenuItem_Click);
+      // 
+      // openInSSMSToolStripMenuItem
+      // 
+      this.openInSSMSToolStripMenuItem.Name = "openInSSMSToolStripMenuItem";
+      this.openInSSMSToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+      this.openInSSMSToolStripMenuItem.Text = "Open in SSMS";
+      this.openInSSMSToolStripMenuItem.Click += new System.EventHandler(this.openInSSMSToolStripMenuItem_Click);
+      // 
+      // openInVSCodeToolStripMenuItem
+      // 
+      this.openInVSCodeToolStripMenuItem.Name = "openInVSCodeToolStripMenuItem";
+      this.openInVSCodeToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+      this.openInVSCodeToolStripMenuItem.Text = "Open in VS Code";
+      this.openInVSCodeToolStripMenuItem.Click += new System.EventHandler(this.openInVSCodeToolStripMenuItem_Click);
+      // 
+      // openInNotePadToolStripMenuItem1
+      // 
+      this.openInNotePadToolStripMenuItem1.Name = "openInNotePadToolStripMenuItem1";
+      this.openInNotePadToolStripMenuItem1.Size = new System.Drawing.Size(211, 24);
+      this.openInNotePadToolStripMenuItem1.Text = "Open in NotePad++";
+      this.openInNotePadToolStripMenuItem1.Click += new System.EventHandler(this.openInNotePadToolStripMenuItem1_Click);
+      // 
+      // deleteToolStripMenuItem
+      // 
+      this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+      this.deleteToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+      this.deleteToolStripMenuItem.Text = "Delete";
       // 
       // FormMain
       // 
@@ -220,8 +282,15 @@
     private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem convertToolStripMenuItem;
     private System.Windows.Forms.ContextMenuStrip contextMenuDestination;
-    private System.Windows.Forms.ToolStripMenuItem toolStripMenuView;
-    private System.Windows.Forms.ToolStripMenuItem toolStripMenuDelete;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemView;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSSMS;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVSCODE;
+    private System.Windows.Forms.ToolStripMenuItem openInNotePadToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem openInSSMSToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem openInVSCodeToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem openInNotePadToolStripMenuItem1;
+    private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
   }
 }
 

@@ -129,7 +129,4 @@
   <metadata name="folderBrowserDialogDestination.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>259, 17</value>
   </metadata>
-  <data name="FormMain_toolStripMenuDelete_Click_You_must_select_a_file_to_delete_it_" xml:space="preserve">
-    <value>You must select a file to delete it.</value>
-  </data>
 </root>

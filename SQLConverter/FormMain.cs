@@ -117,5 +117,73 @@ namespace SQLConverter
       File.Delete(currentFile);
       this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
     }
+
+    private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
+    {
+      if (this.listBoxDestinationFiles.SelectedItem == null)
+      {
+        MessageBox.Show("You must select a file to open it.");
+        return;
+      }
+      var f = this.listBoxDestinationFiles.SelectedItem.ToString();
+      System.Diagnostics.Process.Start("ssms.exe", $"-E {f}");
+    }
+
+    private void toolStripMenuItemVSCODE_Click(object sender, EventArgs e)
+    {
+      if (this.listBoxDestinationFiles.SelectedItem == null)
+      {
+        MessageBox.Show("You must select a file to open it.");
+        return;
+      }
+      var f = this.listBoxDestinationFiles.SelectedItem.ToString();
+      System.Diagnostics.Process.Start("code", $"-g {f}");
+    }
+
+    private void openInNotePadToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.listBoxDestinationFiles.SelectedItem == null)
+      {
+        MessageBox.Show("You must select a file to open it.");
+        return;
+      }
+      var f = this.listBoxDestinationFiles.SelectedItem.ToString();
+      System.Diagnostics.Process.Start("Notepad++.exe", $"{f}");
+    }
+
+    private void openInSSMSToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.listBoxSourceFiles.SelectedItem == null)
+      {
+        MessageBox.Show("You must select a file to open it.");
+        return;
+      }
+      var f = this.listBoxSourceFiles.SelectedItem.ToString();
+      System.Diagnostics.Process.Start("ssms.exe", $"-E {f}");
+    }
+
+    private void openInVSCodeToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.listBoxSourceFiles.SelectedItem == null)
+      {
+        MessageBox.Show("You must select a file to open it.");
+        return;
+      }
+      var f = this.listBoxSourceFiles.SelectedItem.ToString();
+      System.Diagnostics.Process.Start("code", $"-g {f}");
+    }
+
+    private void openInNotePadToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      if (this.listBoxSourceFiles.SelectedItem == null)
+      {
+        MessageBox.Show("You must select a file to open it.");
+        return;
+      }
+      var f = this.listBoxSourceFiles.SelectedItem.ToString();
+      System.Diagnostics.Process.Start("Notepad++.exe", $"{f}");
+    }
   }
+  
 }
+
