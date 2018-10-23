@@ -82,5 +82,40 @@ namespace SQLConverter
       File.WriteAllText(destinationPath, previewText, encoding);
       this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
     }
+
+    private void toolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      var currentFile = this.listBoxSourceFiles.SelectedItem.ToString();
+      var bytes = File.ReadAllBytes(currentFile);
+      var encoding = new System.Text.UTF8Encoding(false); // NO BOM
+      var utf = encoding.GetString(bytes);
+      FormViewer viewer = new FormViewer();
+      viewer.SetContent(utf);
+      viewer.Show();
+    }
+
+    private void contextMenuDestination_Opening(object sender, CancelEventArgs e)
+    {
+
+    }
+
+    private void toolStripMenuDelete_Click(object sender, EventArgs e)
+    {
+      if (this.listBoxDestinationFiles.SelectedItem == null)
+      {
+        MessageBox.Show("You must select a file to delete it.");
+        return;
+      }
+      else
+      {
+        if (MessageBox.Show($"Are you sure you want to delete {this.listBoxDestinationFiles.SelectedItem.ToString()}?",
+              "File Delete Check", MessageBoxButtons.YesNo) == DialogResult.No)
+          return;
+      }
+
+      var currentFile = this.listBoxDestinationFiles.SelectedItem.ToString();
+      File.Delete(currentFile);
+      this.listBoxDestinationFiles.DataSource = Directory.GetFiles(textBoxDestination.Text);
+    }
   }
 }

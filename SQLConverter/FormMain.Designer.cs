@@ -38,12 +38,16 @@
       this.listBoxSourceFiles = new System.Windows.Forms.ListBox();
       this.contextMenuSource = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.convertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.buttonSource = new System.Windows.Forms.Button();
       this.buttonDestination = new System.Windows.Forms.Button();
       this.buttonConvert = new System.Windows.Forms.Button();
       this.folderBrowserDialogDestination = new System.Windows.Forms.FolderBrowserDialog();
-      this.convertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.contextMenuDestination = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.toolStripMenuView = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
       this.contextMenuSource.SuspendLayout();
+      this.contextMenuDestination.SuspendLayout();
       this.SuspendLayout();
       // 
       // textBoxSource
@@ -80,6 +84,7 @@
       // 
       // listBoxDestinationFiles
       // 
+      this.listBoxDestinationFiles.ContextMenuStrip = this.contextMenuDestination;
       this.listBoxDestinationFiles.FormattingEnabled = true;
       this.listBoxDestinationFiles.ItemHeight = 16;
       this.listBoxDestinationFiles.Location = new System.Drawing.Point(392, 164);
@@ -104,15 +109,22 @@
             this.previewToolStripMenuItem,
             this.convertToolStripMenuItem});
       this.contextMenuSource.Name = "contextMenuStrip1";
-      this.contextMenuSource.Size = new System.Drawing.Size(211, 80);
+      this.contextMenuSource.Size = new System.Drawing.Size(130, 52);
       this.contextMenuSource.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuSource_Opening);
       // 
       // previewToolStripMenuItem
       // 
       this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
-      this.previewToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+      this.previewToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
       this.previewToolStripMenuItem.Text = "Preview";
       this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
+      // 
+      // convertToolStripMenuItem
+      // 
+      this.convertToolStripMenuItem.Name = "convertToolStripMenuItem";
+      this.convertToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
+      this.convertToolStripMenuItem.Text = "Convert";
+      this.convertToolStripMenuItem.Click += new System.EventHandler(this.convertToolStripMenuItem_Click);
       // 
       // buttonSource
       // 
@@ -144,12 +156,29 @@
       this.buttonConvert.UseVisualStyleBackColor = true;
       this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
       // 
-      // convertToolStripMenuItem
+      // contextMenuDestination
       // 
-      this.convertToolStripMenuItem.Name = "convertToolStripMenuItem";
-      this.convertToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-      this.convertToolStripMenuItem.Text = "Convert";
-      this.convertToolStripMenuItem.Click += new System.EventHandler(this.convertToolStripMenuItem_Click);
+      this.contextMenuDestination.ImageScalingSize = new System.Drawing.Size(20, 20);
+      this.contextMenuDestination.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuView,
+            this.toolStripMenuDelete});
+      this.contextMenuDestination.Name = "contextMenuDestination";
+      this.contextMenuDestination.Size = new System.Drawing.Size(211, 80);
+      this.contextMenuDestination.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuDestination_Opening);
+      // 
+      // toolStripMenuView
+      // 
+      this.toolStripMenuView.Name = "toolStripMenuView";
+      this.toolStripMenuView.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuView.Text = "View";
+      this.toolStripMenuView.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+      // 
+      // toolStripMenuDelete
+      // 
+      this.toolStripMenuDelete.Name = "toolStripMenuDelete";
+      this.toolStripMenuDelete.Size = new System.Drawing.Size(210, 24);
+      this.toolStripMenuDelete.Text = "Delete";
+      this.toolStripMenuDelete.Click += new System.EventHandler(this.toolStripMenuDelete_Click);
       // 
       // FormMain
       // 
@@ -168,6 +197,7 @@
       this.Name = "FormMain";
       this.Text = "SQL Converter";
       this.contextMenuSource.ResumeLayout(false);
+      this.contextMenuDestination.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -189,6 +219,9 @@
     private System.Windows.Forms.ContextMenuStrip contextMenuSource;
     private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem convertToolStripMenuItem;
+    private System.Windows.Forms.ContextMenuStrip contextMenuDestination;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuView;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuDelete;
   }
 }
 
