@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SQLConverter
 {
-  public partial class FormPreview : Form
+  public partial class FormPreview : System.Windows.Forms.Form
   {
 
     public void SetBefore(string before)

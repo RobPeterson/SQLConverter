@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace SQLConverter
 {
-  public partial class FormMain : Form
+  public partial class FormMain : System.Windows.Forms.Form
   {
     public FormMain()
     {

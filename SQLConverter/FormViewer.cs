@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SQLConverter
 {
-  public partial class FormViewer : Form
+  public partial class FormViewer : System.Windows.Forms.Form
   {
     public FormViewer()
     {
