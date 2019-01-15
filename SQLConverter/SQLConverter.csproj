@@ -54,6 +54,12 @@
     <Compile Include="FormConnectToSqlServer.Designer.cs">
       <DependentUpon>FormConnectToSqlServer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectDatabase.Designer.cs">
+      <DependentUpon>FormSelectDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="FunctionBuilder.cs" />
     <Compile Include="SprocBuilder.cs" />
     <Compile Include="SqlBuilder.cs" />
@@ -83,6 +89,9 @@
     <Compile Include="SystemHelperClass.cs" />
     <EmbeddedResource Include="FormConnectToSqlServer.resx">
       <DependentUpon>FormConnectToSqlServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectDatabase.resx">
+      <DependentUpon>FormSelectDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViewer.resx">
       <DependentUpon>FormViewer.cs</DependentUpon>
