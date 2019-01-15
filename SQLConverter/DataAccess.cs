@@ -105,7 +105,7 @@ namespace SQLConverter
     public static List<DatabaseObject> GetFunctions()
     {
       List<DatabaseObject> result = new List<DatabaseObject>();
-      string queryString = "SELECT o.name, m.definition FROM sys.sql_modules AS m INNER JOIN sys.objects AS o ON m.[object_id] = o.[OBJECT_ID] WHERE type IN('IF', 'FS', 'FN') ORDER BY o.Name;";
+      string queryString = "SELECT o.name, m.definition FROM sys.sql_modules AS m INNER JOIN sys.objects AS o ON m.[object_id] = o.[OBJECT_ID] WHERE type IN ('IF', 'FS', 'FN', 'FT', 'TF') ORDER BY o.Name;";
       string connectionString = GetConnectionString();
 
       using (SqlConnection connection = new SqlConnection(connectionString))
