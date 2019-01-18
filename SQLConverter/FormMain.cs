@@ -229,6 +229,12 @@ namespace SQLConverter
       textBoxDestination.Text = "";
       textBoxSource.Text = "";
     }
+
+    private void extractToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      FormConnectToSqlServer formConnectToSqlServer = new FormConnectToSqlServer();
+      formConnectToSqlServer.Show();
+    }
   }
   
 }

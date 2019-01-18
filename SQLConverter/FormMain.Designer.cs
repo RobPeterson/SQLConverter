@@ -35,33 +35,35 @@
       this.labelDestination = new System.Windows.Forms.Label();
       this.textBoxDestination = new System.Windows.Forms.TextBox();
       this.listBoxDestinationFiles = new System.Windows.Forms.ListBox();
+      this.contextMenuDestination = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.toolStripMenuItemView = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemSSMS = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemVSCODE = new System.Windows.Forms.ToolStripMenuItem();
+      this.openInNotePadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+      this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.listBoxSourceFiles = new System.Windows.Forms.ListBox();
       this.contextMenuSource = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.convertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.buttonSource = new System.Windows.Forms.Button();
-      this.buttonDestination = new System.Windows.Forms.Button();
-      this.buttonConvert = new System.Windows.Forms.Button();
-      this.folderBrowserDialogDestination = new System.Windows.Forms.FolderBrowserDialog();
-      this.contextMenuDestination = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.toolStripMenuItemView = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItemSSMS = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItemVSCODE = new System.Windows.Forms.ToolStripMenuItem();
-      this.openInNotePadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.openInSSMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.openInVSCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.openInNotePadToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.buttonSource = new System.Windows.Forms.Button();
+      this.buttonDestination = new System.Windows.Forms.Button();
+      this.buttonConvert = new System.Windows.Forms.Button();
+      this.folderBrowserDialogDestination = new System.Windows.Forms.FolderBrowserDialog();
       this.checkBoxOverwriteExistingFiles = new System.Windows.Forms.CheckBox();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.contextMenuSource.SuspendLayout();
+      this.eTLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.extractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.contextMenuDestination.SuspendLayout();
+      this.contextMenuSource.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -107,6 +109,62 @@
       this.listBoxDestinationFiles.Size = new System.Drawing.Size(369, 228);
       this.listBoxDestinationFiles.TabIndex = 5;
       // 
+      // contextMenuDestination
+      // 
+      this.contextMenuDestination.ImageScalingSize = new System.Drawing.Size(20, 20);
+      this.contextMenuDestination.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemView,
+            this.toolStripMenuItemSSMS,
+            this.toolStripMenuItemVSCODE,
+            this.openInNotePadToolStripMenuItem,
+            this.toolStripMenuItemDelete,
+            this.refreshToolStripMenuItem1});
+      this.contextMenuDestination.Name = "contextMenuDestination";
+      this.contextMenuDestination.Size = new System.Drawing.Size(212, 148);
+      this.contextMenuDestination.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuDestination_Opening);
+      // 
+      // toolStripMenuItemView
+      // 
+      this.toolStripMenuItemView.Name = "toolStripMenuItemView";
+      this.toolStripMenuItemView.Size = new System.Drawing.Size(211, 24);
+      this.toolStripMenuItemView.Text = "View";
+      this.toolStripMenuItemView.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+      // 
+      // toolStripMenuItemSSMS
+      // 
+      this.toolStripMenuItemSSMS.Name = "toolStripMenuItemSSMS";
+      this.toolStripMenuItemSSMS.Size = new System.Drawing.Size(211, 24);
+      this.toolStripMenuItemSSMS.Text = "Open in SSMS";
+      this.toolStripMenuItemSSMS.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
+      // 
+      // toolStripMenuItemVSCODE
+      // 
+      this.toolStripMenuItemVSCODE.Name = "toolStripMenuItemVSCODE";
+      this.toolStripMenuItemVSCODE.Size = new System.Drawing.Size(211, 24);
+      this.toolStripMenuItemVSCODE.Text = "Open in VS Code";
+      this.toolStripMenuItemVSCODE.Click += new System.EventHandler(this.toolStripMenuItemVSCODE_Click);
+      // 
+      // openInNotePadToolStripMenuItem
+      // 
+      this.openInNotePadToolStripMenuItem.Name = "openInNotePadToolStripMenuItem";
+      this.openInNotePadToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+      this.openInNotePadToolStripMenuItem.Text = "Open in NotePad++";
+      this.openInNotePadToolStripMenuItem.Click += new System.EventHandler(this.openInNotePadToolStripMenuItem_Click);
+      // 
+      // toolStripMenuItemDelete
+      // 
+      this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+      this.toolStripMenuItemDelete.Size = new System.Drawing.Size(211, 24);
+      this.toolStripMenuItemDelete.Text = "Delete";
+      this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuDelete_Click);
+      // 
+      // refreshToolStripMenuItem1
+      // 
+      this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
+      this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(211, 24);
+      this.refreshToolStripMenuItem1.Text = "Refresh";
+      this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.refreshToolStripMenuItem1_Click);
+      // 
       // listBoxSourceFiles
       // 
       this.listBoxSourceFiles.ContextMenuStrip = this.contextMenuSource;
@@ -146,85 +204,6 @@
       this.convertToolStripMenuItem.Text = "Convert";
       this.convertToolStripMenuItem.Click += new System.EventHandler(this.convertToolStripMenuItem_Click);
       // 
-      // buttonSource
-      // 
-      this.buttonSource.Location = new System.Drawing.Point(766, 60);
-      this.buttonSource.Name = "buttonSource";
-      this.buttonSource.Size = new System.Drawing.Size(42, 23);
-      this.buttonSource.TabIndex = 7;
-      this.buttonSource.Text = "...";
-      this.buttonSource.UseVisualStyleBackColor = true;
-      this.buttonSource.Click += new System.EventHandler(this.buttonSource_Click);
-      // 
-      // buttonDestination
-      // 
-      this.buttonDestination.Location = new System.Drawing.Point(766, 94);
-      this.buttonDestination.Name = "buttonDestination";
-      this.buttonDestination.Size = new System.Drawing.Size(42, 23);
-      this.buttonDestination.TabIndex = 8;
-      this.buttonDestination.Text = "...";
-      this.buttonDestination.UseVisualStyleBackColor = true;
-      this.buttonDestination.Click += new System.EventHandler(this.buttonDestination_Click);
-      // 
-      // buttonConvert
-      // 
-      this.buttonConvert.Location = new System.Drawing.Point(309, 398);
-      this.buttonConvert.Name = "buttonConvert";
-      this.buttonConvert.Size = new System.Drawing.Size(154, 27);
-      this.buttonConvert.TabIndex = 9;
-      this.buttonConvert.Text = "Convert All";
-      this.buttonConvert.UseVisualStyleBackColor = true;
-      this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
-      // 
-      // contextMenuDestination
-      // 
-      this.contextMenuDestination.ImageScalingSize = new System.Drawing.Size(20, 20);
-      this.contextMenuDestination.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemView,
-            this.toolStripMenuItemSSMS,
-            this.toolStripMenuItemVSCODE,
-            this.openInNotePadToolStripMenuItem,
-            this.toolStripMenuItemDelete,
-            this.refreshToolStripMenuItem1});
-      this.contextMenuDestination.Name = "contextMenuDestination";
-      this.contextMenuDestination.Size = new System.Drawing.Size(212, 148);
-      this.contextMenuDestination.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuDestination_Opening);
-      // 
-      // toolStripMenuItemView
-      // 
-      this.toolStripMenuItemView.Name = "toolStripMenuItemView";
-      this.toolStripMenuItemView.Size = new System.Drawing.Size(211, 24);
-      this.toolStripMenuItemView.Text = "View";
-      this.toolStripMenuItemView.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-      // 
-      // toolStripMenuItemDelete
-      // 
-      this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-      this.toolStripMenuItemDelete.Size = new System.Drawing.Size(211, 24);
-      this.toolStripMenuItemDelete.Text = "Delete";
-      this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuDelete_Click);
-      // 
-      // toolStripMenuItemSSMS
-      // 
-      this.toolStripMenuItemSSMS.Name = "toolStripMenuItemSSMS";
-      this.toolStripMenuItemSSMS.Size = new System.Drawing.Size(211, 24);
-      this.toolStripMenuItemSSMS.Text = "Open in SSMS";
-      this.toolStripMenuItemSSMS.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
-      // 
-      // toolStripMenuItemVSCODE
-      // 
-      this.toolStripMenuItemVSCODE.Name = "toolStripMenuItemVSCODE";
-      this.toolStripMenuItemVSCODE.Size = new System.Drawing.Size(211, 24);
-      this.toolStripMenuItemVSCODE.Text = "Open in VS Code";
-      this.toolStripMenuItemVSCODE.Click += new System.EventHandler(this.toolStripMenuItemVSCODE_Click);
-      // 
-      // openInNotePadToolStripMenuItem
-      // 
-      this.openInNotePadToolStripMenuItem.Name = "openInNotePadToolStripMenuItem";
-      this.openInNotePadToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
-      this.openInNotePadToolStripMenuItem.Text = "Open in NotePad++";
-      this.openInNotePadToolStripMenuItem.Click += new System.EventHandler(this.openInNotePadToolStripMenuItem_Click);
-      // 
       // openInSSMSToolStripMenuItem
       // 
       this.openInSSMSToolStripMenuItem.Name = "openInSSMSToolStripMenuItem";
@@ -259,12 +238,35 @@
       this.refreshToolStripMenuItem.Text = "Refresh";
       this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
       // 
-      // refreshToolStripMenuItem1
+      // buttonSource
       // 
-      this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
-      this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(211, 24);
-      this.refreshToolStripMenuItem1.Text = "Refresh";
-      this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.refreshToolStripMenuItem1_Click);
+      this.buttonSource.Location = new System.Drawing.Point(766, 60);
+      this.buttonSource.Name = "buttonSource";
+      this.buttonSource.Size = new System.Drawing.Size(42, 23);
+      this.buttonSource.TabIndex = 7;
+      this.buttonSource.Text = "...";
+      this.buttonSource.UseVisualStyleBackColor = true;
+      this.buttonSource.Click += new System.EventHandler(this.buttonSource_Click);
+      // 
+      // buttonDestination
+      // 
+      this.buttonDestination.Location = new System.Drawing.Point(766, 94);
+      this.buttonDestination.Name = "buttonDestination";
+      this.buttonDestination.Size = new System.Drawing.Size(42, 23);
+      this.buttonDestination.TabIndex = 8;
+      this.buttonDestination.Text = "...";
+      this.buttonDestination.UseVisualStyleBackColor = true;
+      this.buttonDestination.Click += new System.EventHandler(this.buttonDestination_Click);
+      // 
+      // buttonConvert
+      // 
+      this.buttonConvert.Location = new System.Drawing.Point(309, 398);
+      this.buttonConvert.Name = "buttonConvert";
+      this.buttonConvert.Size = new System.Drawing.Size(154, 27);
+      this.buttonConvert.TabIndex = 9;
+      this.buttonConvert.Text = "Convert All";
+      this.buttonConvert.UseVisualStyleBackColor = true;
+      this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
       // 
       // checkBoxOverwriteExistingFiles
       // 
@@ -280,7 +282,8 @@
       // 
       this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
       this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.eTLToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
       this.menuStrip1.Size = new System.Drawing.Size(824, 28);
@@ -310,6 +313,21 @@
       this.clearAllToolStripMenuItem.Text = "Clear All";
       this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
       // 
+      // eTLToolStripMenuItem
+      // 
+      this.eTLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.extractToolStripMenuItem});
+      this.eTLToolStripMenuItem.Name = "eTLToolStripMenuItem";
+      this.eTLToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+      this.eTLToolStripMenuItem.Text = "ETL";
+      // 
+      // extractToolStripMenuItem
+      // 
+      this.extractToolStripMenuItem.Name = "extractToolStripMenuItem";
+      this.extractToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+      this.extractToolStripMenuItem.Text = "Extract";
+      this.extractToolStripMenuItem.Click += new System.EventHandler(this.extractToolStripMenuItem_Click);
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -329,8 +347,8 @@
       this.MainMenuStrip = this.menuStrip1;
       this.Name = "FormMain";
       this.Text = "SQL Converter";
-      this.contextMenuSource.ResumeLayout(false);
       this.contextMenuDestination.ResumeLayout(false);
+      this.contextMenuSource.ResumeLayout(false);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
@@ -371,6 +389,8 @@
     private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem eTLToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem extractToolStripMenuItem;
   }
 }
 

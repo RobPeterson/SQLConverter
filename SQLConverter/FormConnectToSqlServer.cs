@@ -36,5 +36,15 @@ namespace SQLConverter
         this.textBoxPassword.Enabled = true;
       }
     }
+
+    private void buttonConnect_Click(object sender, EventArgs e)
+    {
+      DataAccess.authentication = listBoxAuthentication.SelectedItem?.ToString() ?? "Windows Authentication";
+      DataAccess.server = this.textBoxServerName.Text;
+      FormSelectDatabase selectDatabase = new FormSelectDatabase();
+      selectDatabase.Show();
+      this.Visible = false;
+
+    }
   }
 }
