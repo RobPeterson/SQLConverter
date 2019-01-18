@@ -20,6 +20,8 @@ namespace SQLConverter
       InitializeComponent();
     }
 
+    private enum ExtractionType { ExtractAll, ExtractStoredProcedures, ExtractFunctions, ExtractViews}
+
     private void buttonSource_Click(object sender, EventArgs e)
     {
       this.folderBrowserDialogSource.ShowDialog();
@@ -232,8 +234,48 @@ namespace SQLConverter
 
     private void extractToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      Extract(ExtractionType.ExtractAll);
+    }
+
+    private void Extract(ExtractionType et)
+    {
       FormConnectToSqlServer formConnectToSqlServer = new FormConnectToSqlServer();
-      formConnectToSqlServer.Show();
+      formConnectToSqlServer.ShowDialog();
+      ExtractionService eService = new ExtractionService();
+      switch (et)
+      {
+        case ExtractionType.ExtractAll:
+          eService.ExtractAll(this.textBoxSource.Text, false);
+          break;
+        case ExtractionType.ExtractFunctions:
+          eService.ExtractFunctions(this.textBoxSource.Text, false);
+          break;
+        case ExtractionType.ExtractStoredProcedures:
+          eService.ExtractStoredProcedures(this.textBoxSource.Text, false);
+          break;
+        case ExtractionType.ExtractViews:
+          break;
+        default:
+          eService.ExtractAll(this.textBoxSource.Text, false);
+          break;
+
+      }
+      this.listBoxSourceFiles.DataSource = Directory.GetFiles(textBoxSource.Text);
+    }
+
+    private void extractStoredProceduresToSourceToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Extract(ExtractionType.ExtractStoredProcedures);
+    }
+
+    private void extractFunctionsToSourceToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Extract(ExtractionType.ExtractFunctions);
+    }
+
+    private void extractViewsToSourceToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Extract(ExtractionType.ExtractViews);
     }
   }
   

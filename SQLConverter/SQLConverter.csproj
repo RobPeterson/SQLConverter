@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
     <Compile Include="DatabaseObject.cs" />
+    <Compile Include="ExtractionService.cs" />
     <Compile Include="FormConnectToSqlServer.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -42,7 +42,7 @@ namespace SQLConverter
       DataAccess.authentication = listBoxAuthentication.SelectedItem?.ToString() ?? "Windows Authentication";
       DataAccess.server = this.textBoxServerName.Text;
       FormSelectDatabase selectDatabase = new FormSelectDatabase();
-      selectDatabase.Show();
+      selectDatabase.ShowDialog();
       this.Visible = false;
 
     }

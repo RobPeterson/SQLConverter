@@ -62,6 +62,9 @@
       this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.eTLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.extractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.extractStoredProceduresToSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.extractFunctionsToSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.extractViewsToSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.contextMenuDestination.SuspendLayout();
       this.contextMenuSource.SuspendLayout();
       this.menuStrip1.SuspendLayout();
@@ -316,7 +319,10 @@
       // eTLToolStripMenuItem
       // 
       this.eTLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.extractToolStripMenuItem});
+            this.extractToolStripMenuItem,
+            this.extractStoredProceduresToSourceToolStripMenuItem,
+            this.extractFunctionsToSourceToolStripMenuItem,
+            this.extractViewsToSourceToolStripMenuItem});
       this.eTLToolStripMenuItem.Name = "eTLToolStripMenuItem";
       this.eTLToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
       this.eTLToolStripMenuItem.Text = "ETL";
@@ -324,9 +330,30 @@
       // extractToolStripMenuItem
       // 
       this.extractToolStripMenuItem.Name = "extractToolStripMenuItem";
-      this.extractToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-      this.extractToolStripMenuItem.Text = "Extract";
+      this.extractToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+      this.extractToolStripMenuItem.Text = "Extract All To Source";
       this.extractToolStripMenuItem.Click += new System.EventHandler(this.extractToolStripMenuItem_Click);
+      // 
+      // extractStoredProceduresToSourceToolStripMenuItem
+      // 
+      this.extractStoredProceduresToSourceToolStripMenuItem.Name = "extractStoredProceduresToSourceToolStripMenuItem";
+      this.extractStoredProceduresToSourceToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+      this.extractStoredProceduresToSourceToolStripMenuItem.Text = "Extract Stored Procedures To Source";
+      this.extractStoredProceduresToSourceToolStripMenuItem.Click += new System.EventHandler(this.extractStoredProceduresToSourceToolStripMenuItem_Click);
+      // 
+      // extractFunctionsToSourceToolStripMenuItem
+      // 
+      this.extractFunctionsToSourceToolStripMenuItem.Name = "extractFunctionsToSourceToolStripMenuItem";
+      this.extractFunctionsToSourceToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+      this.extractFunctionsToSourceToolStripMenuItem.Text = "Extract Functions to Source";
+      this.extractFunctionsToSourceToolStripMenuItem.Click += new System.EventHandler(this.extractFunctionsToSourceToolStripMenuItem_Click);
+      // 
+      // extractViewsToSourceToolStripMenuItem
+      // 
+      this.extractViewsToSourceToolStripMenuItem.Name = "extractViewsToSourceToolStripMenuItem";
+      this.extractViewsToSourceToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+      this.extractViewsToSourceToolStripMenuItem.Text = "Extract Views to Source";
+      this.extractViewsToSourceToolStripMenuItem.Click += new System.EventHandler(this.extractViewsToSourceToolStripMenuItem_Click);
       // 
       // FormMain
       // 
@@ -391,6 +418,9 @@
     private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem eTLToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem extractToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem extractStoredProceduresToSourceToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem extractFunctionsToSourceToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem extractViewsToSourceToolStripMenuItem;
   }
 }
 
